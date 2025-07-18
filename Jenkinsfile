@@ -10,7 +10,7 @@ pipeline {
     }
 
     tools {
-        sonarscanner
+        "sonarscanner"
     }
 
     stages {
