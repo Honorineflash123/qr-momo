@@ -1,9 +1,5 @@
 pipeline {
  agent any
-
-    tools {
-        sonarscanner 'sonarscanner'
-    }
     
     triggers {
         pollSCM 'H/5 * * * *'
@@ -13,7 +9,6 @@ pipeline {
         SONARSCANNER = "sonarscanner"
     }
     stages {
-
           stage('Run SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarscanner') {
