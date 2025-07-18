@@ -1,6 +1,10 @@
 pipeline {
-    agent any
+ agent any
 
+    tools {
+        sonarscanner 'sonarscanner'
+    }
+    
     triggers {
         pollSCM 'H/5 * * * *'
     }
@@ -8,11 +12,6 @@ pipeline {
         CI = false //do not treat errors as warnings
         SONARSCANNER = "sonarscanner"
     }
-
-    tools {
-        "sonarscanner"
-    }
-
     stages {
 
           stage('Run SonarQube Analysis') {
