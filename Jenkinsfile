@@ -9,6 +9,10 @@ pipeline {
         SONARSCANNER = "sonarscanner"
     }
 
+    tools {
+        sonarscanner
+    }
+
     stages {
 
           stage('Run SonarQube Analysis') {
