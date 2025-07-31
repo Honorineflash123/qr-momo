@@ -28,8 +28,8 @@ pipeline {
                     sh 'docker login -u $USERNAME -p $PASSWORD'
     // Your Docker commands using the environment variables
                     sh 'docker build -t qrmomojenk:v2 .'
-                    sh 'docker tag qrmomojenk:v2 mwene/qrmomojenk:v2'
-                    sh 'docker push mwene/qrmomojenk:v2'
+                    sh 'docker tag qrmomojenk:v2 hnorinewehpon/qrmomojenk:v2'
+                    sh 'docker push hnorinewehpon/qrmomojenk:v2'
                 }
             } 
         }         
