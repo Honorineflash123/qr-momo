@@ -10,10 +10,10 @@ pipeline {
     stages {
         stage('Run SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-jenkins-token', variable: 'SONARQUBE')]) {
+                withCredentials([string(credentialsId: 'sonar-jenkins-token1', variable: 'SONARQUBE')]) {
                     sh '''
                         sonar-scanner \
-                          -Dsonar.projectKey=emmy-coming-soon1 \
+                          -Dsonar.projectKey=qr-momo \
                           -Dsonar.sources=. \
                           -Dsonar.host.url=http://sonarqube:9000 \
                           -Dsonar.login=$SONARQUBE
@@ -28,8 +28,8 @@ pipeline {
                     sh 'docker login -u $USERNAME -p $PASSWORD'
     // Your Docker commands using the environment variables
                     sh 'docker build -t emmy-coming-soon1:v2 .'
-                    sh 'docker tag emmy-coming-soon1:v2 hnorinewehpon/emmy-coming-soon1:v2'
-                    sh 'docker push hnorinewehpon/emmy-coming-soon1:v2'
+                    sh 'docker tag qr-momo:v2 hnorinewehpon/qr-momo:v2'
+                    sh 'docker push hnorinewehpon/qr-momo:v2'
                 }
             } 
         }         
