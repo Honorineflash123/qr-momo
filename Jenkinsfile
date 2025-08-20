@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Run SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-jenkins-token', variable: 'SONARQUBE')]) {
+                withCredentials([string(credentialsId: 'sonar-jenkins-token1', variable: 'SONARQUBE')]) {
                     sh '''
                         sonar-scanner \
                           -Dsonar.projectKey=emmy-coming-soon1 code-analysis \
