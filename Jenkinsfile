@@ -10,13 +10,13 @@ pipeline {
     stages {
         stage('Run SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-jenkins-token1', variable: 'SONARQUBE')]) {
+                withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
                     sh '''
                         sonar-scanner \
                           -Dsonar.projectKey=qr-momo \
                           -Dsonar.sources=. \
                           -Dsonar.host.url=http://sonarqube:9000 \
-                          -Dsonar.login=$SONARQUBE
+                          -Dsonar.login=$SONAR_TOKEN
                     '''
                 }   
             }
